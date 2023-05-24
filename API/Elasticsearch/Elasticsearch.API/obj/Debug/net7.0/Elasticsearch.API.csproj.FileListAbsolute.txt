@@ -1,3 +1,10 @@
+D:\UdemyElasticsearchWithNet\API\Elasticsearch\Elasticsearch.API\obj\Debug\net7.0\Elasticsearch.API.csproj.AssemblyReference.cache
+D:\UdemyElasticsearchWithNet\API\Elasticsearch\Elasticsearch.API\obj\Debug\net7.0\Elasticsearch.API.GeneratedMSBuildEditorConfig.editorconfig
+D:\UdemyElasticsearchWithNet\API\Elasticsearch\Elasticsearch.API\obj\Debug\net7.0\Elasticsearch.API.AssemblyInfoInputs.cache
+D:\UdemyElasticsearchWithNet\API\Elasticsearch\Elasticsearch.API\obj\Debug\net7.0\Elasticsearch.API.AssemblyInfo.cs
+D:\UdemyElasticsearchWithNet\API\Elasticsearch\Elasticsearch.API\obj\Debug\net7.0\Elasticsearch.API.csproj.CoreCompileInputs.cache
+D:\UdemyElasticsearchWithNet\API\Elasticsearch\Elasticsearch.API\obj\Debug\net7.0\Elasticsearch.API.MvcApplicationPartsAssemblyInfo.cs
+D:\UdemyElasticsearchWithNet\API\Elasticsearch\Elasticsearch.API\obj\Debug\net7.0\Elasticsearch.API.MvcApplicationPartsAssemblyInfo.cache
 D:\UdemyElasticsearchWithNet\API\Elasticsearch\Elasticsearch.API\bin\Debug\net7.0\appsettings.Development.json
 D:\UdemyElasticsearchWithNet\API\Elasticsearch\Elasticsearch.API\bin\Debug\net7.0\appsettings.json
 D:\UdemyElasticsearchWithNet\API\Elasticsearch\Elasticsearch.API\bin\Debug\net7.0\Elasticsearch.API.exe
@@ -12,13 +19,6 @@ D:\UdemyElasticsearchWithNet\API\Elasticsearch\Elasticsearch.API\bin\Debug\net7.
 D:\UdemyElasticsearchWithNet\API\Elasticsearch\Elasticsearch.API\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
 D:\UdemyElasticsearchWithNet\API\Elasticsearch\Elasticsearch.API\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\UdemyElasticsearchWithNet\API\Elasticsearch\Elasticsearch.API\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-D:\UdemyElasticsearchWithNet\API\Elasticsearch\Elasticsearch.API\obj\Debug\net7.0\Elasticsearch.API.csproj.AssemblyReference.cache
-D:\UdemyElasticsearchWithNet\API\Elasticsearch\Elasticsearch.API\obj\Debug\net7.0\Elasticsearch.API.GeneratedMSBuildEditorConfig.editorconfig
-D:\UdemyElasticsearchWithNet\API\Elasticsearch\Elasticsearch.API\obj\Debug\net7.0\Elasticsearch.API.AssemblyInfoInputs.cache
-D:\UdemyElasticsearchWithNet\API\Elasticsearch\Elasticsearch.API\obj\Debug\net7.0\Elasticsearch.API.AssemblyInfo.cs
-D:\UdemyElasticsearchWithNet\API\Elasticsearch\Elasticsearch.API\obj\Debug\net7.0\Elasticsearch.API.csproj.CoreCompileInputs.cache
-D:\UdemyElasticsearchWithNet\API\Elasticsearch\Elasticsearch.API\obj\Debug\net7.0\Elasticsearch.API.MvcApplicationPartsAssemblyInfo.cs
-D:\UdemyElasticsearchWithNet\API\Elasticsearch\Elasticsearch.API\obj\Debug\net7.0\Elasticsearch.API.MvcApplicationPartsAssemblyInfo.cache
 D:\UdemyElasticsearchWithNet\API\Elasticsearch\Elasticsearch.API\obj\Debug\net7.0\staticwebassets\msbuild.Elasticsearch.API.Microsoft.AspNetCore.StaticWebAssets.props
 D:\UdemyElasticsearchWithNet\API\Elasticsearch\Elasticsearch.API\obj\Debug\net7.0\staticwebassets\msbuild.build.Elasticsearch.API.props
 D:\UdemyElasticsearchWithNet\API\Elasticsearch\Elasticsearch.API\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.Elasticsearch.API.props
