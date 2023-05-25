@@ -9,7 +9,7 @@ namespace Elasticsearch.API.Repositories
     public class ProductRepository
     {
         private readonly ElasticClient _client;
-        private const string indexName = "products";
+        private const string indexName = "products11";
         public ProductRepository(ElasticClient client)
         {
             _client = client;
@@ -59,14 +59,25 @@ namespace Elasticsearch.API.Repositories
 
         }
 
-        public async Task<bool>   UpdateAsync(ProductUpdateDto updateProduct)
+      
+        public async Task<bool>  UpdateSynch(ProductUpdateDto updateProduct)
+        {
+            var response = await _client.UpdateAsync<Product, ProductUpdateDto>(updateProduct.Id, x =>
+            x.Index(indexName).Doc(updateProduct));
 
+            return response.IsValid;
+
+        }
+       /// <summary>
+       /// Hata yönetimi için bu method ele alınmıştır.
+       /// </summary>
+       /// <param name="id"></param>
+       /// <returns></returns>
+        public async Task<DeleteResponse> DeleteAsync(string id)
         {
 
-            var response= _client.UpdateAsync<Product, ProductUpdateDto>
-
-
-
+            var response= await _client.DeleteAsync<Product>(id,x=>x.Index(indexName));
+            return response;
         }
     }
 }
