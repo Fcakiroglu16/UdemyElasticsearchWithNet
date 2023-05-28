@@ -34,7 +34,7 @@ namespace Elasticsearch.API.Repositories
             //3. way
 
             var termQuery= new TermQuery("customer_first_name.keyword") {  Value = customerFirstName, CaseInsensitive=true };
-
+          
             var result = await _client.SearchAsync<ECommerce>(s => s.Index(indexName).Query(termQuery));
 
 
