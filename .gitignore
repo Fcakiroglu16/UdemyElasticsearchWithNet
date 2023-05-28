@@ -360,3 +360,10 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/API/Elasticsearch/.vs/ProjectEvaluation/elasticsearch.projects.v7.bin
+/API/Elasticsearch/.vs/ProjectEvaluation/elasticsearch.metadata.v7.bin
+/API/Elasticsearch/.vs/Elasticsearch/v17/.suo
+/API/Elasticsearch/.vs/Elasticsearch/v17/.futdcache.v2
+/API/Elasticsearch/.vs/ProjectEvaluation/elasticsearch.projects.v7.bin
+/.gitignore
+/.gitignore
