@@ -17,10 +17,10 @@ namespace Elasticsearch.API.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult>  TermQuery(string customerFirstName)
+        public async Task<IActionResult> TermQuery(string customerFirstName)
         {
 
-            return Ok ( await _repository.TermQuery(customerFirstName));
+            return Ok(await _repository.TermQuery(customerFirstName));
         }
 
 
@@ -30,5 +30,55 @@ namespace Elasticsearch.API.Controllers
 
             return Ok(await _repository.TermsQuery(customerFirstNameList));
         }
+
+
+        [HttpGet]
+        public async Task<IActionResult> PrefixQuery(string customerFullName)
+        {
+
+            return Ok(await _repository.PrefixQueryAsync(customerFullName));
+        }
+
+
+        [HttpGet]
+        public async Task<IActionResult> RangeQuery(double fromPrice, double toPrice)
+        {
+
+            return Ok(await _repository.RangeQueryAsync(fromPrice, toPrice));
+        }
+
+
+        [HttpGet]
+        public async Task<IActionResult> MatchAll()
+        {
+
+            return Ok(await _repository.MatchAllQueryAsync());
+
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> PaginationQuery(int page=1,int pageSize=3)
+        {
+
+            return Ok(await _repository.PaginationQueryAsync(page,pageSize));
+
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> WildCardQuery(string customerFullName)
+        {
+
+            return Ok(await _repository.WildCardQueryAsync(customerFullName));
+
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> FuzzyQuery(string customerName)
+        {
+
+            return Ok(await _repository.FuzzyQueryAsync(customerName));
+
+        }
     }
+
 }

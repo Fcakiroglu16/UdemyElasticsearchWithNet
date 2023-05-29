@@ -18,7 +18,7 @@ namespace Elasticsearch.API.Controllers
         [HttpPost]
         public async Task<IActionResult> Save(ProductCreateDto request)
         {
-
+            
             return CreateActionResult(await _productService.SaveAsync(request));
         }
 
