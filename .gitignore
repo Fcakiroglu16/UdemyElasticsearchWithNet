@@ -367,3 +367,4 @@ FodyWeavers.xsd
 /API/Elasticsearch/.vs/ProjectEvaluation/elasticsearch.projects.v7.bin
 /.gitignore
 /.gitignore
+/API/Elasticsearch/Elasticsearch.API/obj/Debug/net7.0/Elasticsearch.API.csproj.AssemblyReference.cache
