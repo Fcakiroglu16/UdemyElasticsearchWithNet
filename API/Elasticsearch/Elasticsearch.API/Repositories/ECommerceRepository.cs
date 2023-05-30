@@ -174,8 +174,6 @@ namespace Elasticsearch.API.Repositories
         public async Task<ImmutableList<ECommerce>> FuzzyQueryAsync(string customerName)
         {
 
-
-
             var result = await _client.SearchAsync<ECommerce>(s => s.Index(indexName)
                 .Query(q => q.Fuzzy(fu =>
                     fu.Field(f => f.CustomerFirstName.Suffix("keyword")).Value(customerName)
@@ -237,7 +235,8 @@ namespace Elasticsearch.API.Repositories
         public async Task<ImmutableList<ECommerce>> MatchPhrasePrefixFullTextAsync(string customerFullName)
         {
 
-            var result = await _client.SearchAsync<ECommerce>(s => s.Index(indexName)
+        
+			var result = await _client.SearchAsync<ECommerce>(s => s.Index(indexName)
                 .Size(1000).Query(q => q
                     .MatchPhrasePrefix(m => m
                         .Field(f => f.CustomerFullName)
