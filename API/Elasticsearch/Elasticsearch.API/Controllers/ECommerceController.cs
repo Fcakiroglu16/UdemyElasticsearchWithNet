@@ -79,6 +79,39 @@ namespace Elasticsearch.API.Controllers
             return Ok(await _repository.FuzzyQueryAsync(customerName));
 
         }
-    }
+
+        [HttpGet]
+        public async Task<IActionResult> MatchQueryFullText(string category)
+        {
+
+            return Ok(await _repository.MatchQueryFullTextAsync(category));
+
+        }
+
+
+        [HttpGet]
+        public async Task<IActionResult> MatchBoolPrefixQueryFullText(string customerFullName)
+        {
+
+            return Ok(await _repository.MatchBoolPrefixFullTextAsync(customerFullName));
+
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> MatchPhraseQueryFullText(string customerFullName)
+        {
+
+            return Ok(await _repository.MatchPhraseFullTextAsync(customerFullName));
+
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> MatchPhrasePrefixQueryFullText(string customerFullName)
+        {
+
+            return Ok(await _repository.MatchPhrasePrefixFullTextAsync(customerFullName));
+
+        }
+	}
 
 }
