@@ -130,7 +130,6 @@ namespace Elasticsearch.API.Repositories
 
 
 
-
 			foreach (var hit in result.Hits) hit.Source.Id = hit.Id;
 			return result.Documents.ToImmutableList();
 
