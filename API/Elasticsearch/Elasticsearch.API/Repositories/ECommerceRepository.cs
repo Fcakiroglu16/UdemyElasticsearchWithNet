@@ -307,6 +307,7 @@ namespace Elasticsearch.API.Repositories
 			//var result = await _client.SearchAsync<ECommerce>(s => s.Index(indexName)
 			//	.Size(1000).Query(q =>q.MatchPhrasePrefix(m=>m.Field(f=>f.CustomerFullName).Query(customerFullName))));
 
+		
 
 
 			var result = await _client.SearchAsync<ECommerce>(s => s.Index(indexName)

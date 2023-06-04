@@ -1,0 +1,69 @@
+﻿@{
+	ViewData["Title"] = "SearchAsync";
+}
+@model List<BlogViewModel>
+<div class="container">
+	<div class="col-md-10 offset-md-1">
+
+		<form asp-action="Search">
+			<div class="mb-3">
+
+
+				<label>SearchAsync(Title,Content)</label>
+				<input value="@ViewBag.searchText" name="searchText" class="form-control" />
+			</div>
+
+			<button type="submit">Search</button>
+		</form>
+
+
+		@if (!Model.Any())
+		{
+			<div class="alert alert-info">sonuç bulunamamıştır.</div>
+		}
+
+		else
+		{
+
+			<table class="table">
+
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Title</th>
+						<th>Content</th>
+						<th>UserId</th>
+						<th>Tags</th>
+						<th>Created</th>
+					</tr>
+
+
+
+				</thead>
+				<tbody>
+					@foreach (var blog in Model)
+					{
+						<tr>
+							
+							<td>@blog.Id</td>
+							<td>@blog.Title</td>
+							<td>@blog.Content</td>
+							<td>@blog.UserId</td>
+							<td>@blog.Tags</td>
+							<td>@blog.Created</td>
+						</tr>
+
+
+
+
+					}
+				</tbody>
+			</table>
+		}
+
+	</div>
+
+
+
+</div>
+
