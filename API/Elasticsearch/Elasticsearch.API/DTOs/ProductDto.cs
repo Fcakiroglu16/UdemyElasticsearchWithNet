@@ -1,16 +1,13 @@
-﻿using Elasticsearch.API.Models;
-using Nest;
-using System;
+﻿using ElasticSearch.API.Model;
+//using Nest;
 
-namespace Elasticsearch.API.DTOs
+namespace ElasticSearch.API.DTOs
 {
-    public record ProductDto(string Id, string Name, decimal Price, int Stock, ProductFeatureDto? Feature)
+    public record ProductDTO(string Id, string Name, decimal Price, int Stock, DateTime Create, DateTime? Updated, ProductFeatureDTO? Feature)
     {
 
-      
-      
-
         
-       
+
     }
 }
+

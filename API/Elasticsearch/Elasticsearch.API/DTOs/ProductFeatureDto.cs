@@ -1,8 +1,9 @@
-﻿using Elasticsearch.API.Models;
+﻿using ElasticSearch.API.Model;
 
-namespace Elasticsearch.API.DTOs
+namespace ElasticSearch.API.DTOs
 {
-    public record ProductFeatureDto(int Width,int Height,string Color)
+    public record ProductFeatureDTO(int Width,  int Height, String Color)
     {
+
     }
 }

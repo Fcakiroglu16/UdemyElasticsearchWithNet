@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\PC\\Desktop\\Repos\\UdemyElasticsearchWithNet\\API\\Elasticsearch\\Elasticsearch.API\\Elasticsearch.API.csproj": {}
+    "C:\\Users\\PC\\Desktop\\Repos\\UdemyElasticsearchWithNet\\API\\Elasticsearch\\ElasticSearch.API\\ElasticSearch.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\PC\\Desktop\\Repos\\UdemyElasticsearchWithNet\\API\\Elasticsearch\\Elasticsearch.API\\Elasticsearch.API.csproj": {
+    "C:\\Users\\PC\\Desktop\\Repos\\UdemyElasticsearchWithNet\\API\\Elasticsearch\\ElasticSearch.API\\ElasticSearch.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PC\\Desktop\\Repos\\UdemyElasticsearchWithNet\\API\\Elasticsearch\\Elasticsearch.API\\Elasticsearch.API.csproj",
+        "projectUniqueName": "C:\\Users\\PC\\Desktop\\Repos\\UdemyElasticsearchWithNet\\API\\Elasticsearch\\ElasticSearch.API\\ElasticSearch.API.csproj",
         "projectName": "Elasticsearch.API",
-        "projectPath": "C:\\Users\\PC\\Desktop\\Repos\\UdemyElasticsearchWithNet\\API\\Elasticsearch\\Elasticsearch.API\\Elasticsearch.API.csproj",
+        "projectPath": "C:\\Users\\PC\\Desktop\\Repos\\UdemyElasticsearchWithNet\\API\\Elasticsearch\\ElasticSearch.API\\ElasticSearch.API.csproj",
         "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\PC\\Desktop\\Repos\\UdemyElasticsearchWithNet\\API\\Elasticsearch\\Elasticsearch.API\\obj\\",
         "projectStyle": "PackageReference",
@@ -44,13 +44,17 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "Elastic.Clients.Elasticsearch": {
+              "target": "Package",
+              "version": "[8.10.0, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
-              "version": "[7.0.5, )"
+              "version": "[7.0.13, )"
             },
-            "NEST": {
+            "MySql.Data": {
               "target": "Package",
-              "version": "[7.17.5, )"
+              "version": "[8.2.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

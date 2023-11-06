@@ -1,8 +1,8 @@
 {
   "Version": 1,
-  "Hash": "7/uEFb59CRxpLP3ReRK+rA0yrAPvceT3qTO+gItb9wc=",
-  "Source": "Elasticsearch.API",
-  "BasePath": "_content/Elasticsearch.API",
+  "Hash": "9Pl3Lfvxc13qNKzZMGqrHFGEXSjUD+9wx8rLOSQ1/Rk=",
+  "Source": "ElasticSearch.API",
+  "BasePath": "_content/ElasticSearch.API",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],

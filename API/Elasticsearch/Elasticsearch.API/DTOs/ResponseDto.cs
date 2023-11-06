@@ -1,37 +1,35 @@
 ﻿using System.Net;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace Elasticsearch.API.DTOs
+namespace ElasticSearch.API.DTOs
 {
-    public record ResponseDto<T>
+    public record ResponseDTO<T>
     {
         public T? Data { get; set; }
-
-        public List<string>? Errors { get; set; }
-
-
-        public HttpStatusCode Status { get; set; }
+        public HttpStatusCode StatusCode{ get; set; }
+        public HashSet<String>? Errors { get; set; } 
 
 
-        // Static Factory Method
-        public static ResponseDto<T> Success(T data, HttpStatusCode status)
+        //Staric Factory Metod => Factory Method Design Pattern
+        public static ResponseDTO<T> Succes(T data, HttpStatusCode statusCode)
         {
-
-            return new ResponseDto<T> { Data = data,Status=status};
-
-
+            return new ResponseDTO<T> { Data = data, StatusCode = statusCode };
+            //Eğer başarılı ise datayı dolduracak ve başarılı status kodu dönecek.başarılı olduğunda errors doldurmayacağı için data ?(nullable)
         }
 
-        public  static ResponseDto<T> Fail(List<string> errors, HttpStatusCode status) {
 
-            return new ResponseDto<T> { Errors=errors, Status = status };
-        }
-
-        public static ResponseDto<T> Fail(string error, HttpStatusCode status)
+        public static ResponseDTO<T> Fail(HashSet<String> errors, HttpStatusCode statusCode)
         {
-
-            return new ResponseDto<T> { Errors = new List<string> { error}, Status = status };
+            return new ResponseDTO<T> { Errors = errors, StatusCode = statusCode };
+            //Eğer başarısız  ise errors'u dolduracak ve başarısız status kodu dönecek.başarısız olduğunda datayı doldurmayacağı için data ?(nullable)
         }
 
+
+        public static ResponseDTO<T> Fail(string errors, HttpStatusCode statusCode)
+        {
+            return new ResponseDTO<T> { Errors = new HashSet<string> { errors }, StatusCode = statusCode };
+        }
     }
+
+
+    
 }
