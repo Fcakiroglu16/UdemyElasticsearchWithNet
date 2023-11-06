@@ -1,7 +1,7 @@
 ﻿using Elastic.Clients.Elasticsearch;
 using ElasticSearch.API.DTOs;
 using ElasticSearch.API.Interfaces;
-using ElasticSearch.API.Model;
+using ElasticSearch.API.Models;
 using ElasticSearch.API.Repository;
 using Microsoft.Extensions.Logging;
 //using Nest;

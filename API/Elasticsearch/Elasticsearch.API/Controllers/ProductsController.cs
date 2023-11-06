@@ -34,7 +34,7 @@ namespace ElasticSearch.API.Controllers
         {
             return CreateActionResult(await _productService.GetByIdAsync(id));
 
-           
+
         }
 
         [HttpPut("Update")]

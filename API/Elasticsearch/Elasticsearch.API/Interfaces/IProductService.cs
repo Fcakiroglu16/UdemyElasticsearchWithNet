@@ -1,5 +1,5 @@
 ﻿using ElasticSearch.API.DTOs;
-using ElasticSearch.API.Model;
+using ElasticSearch.API.Models;
 
 namespace ElasticSearch.API.Interfaces
 {

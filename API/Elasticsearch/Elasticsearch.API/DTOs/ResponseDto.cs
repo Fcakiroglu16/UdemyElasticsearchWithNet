@@ -5,8 +5,8 @@ namespace ElasticSearch.API.DTOs
     public record ResponseDTO<T>
     {
         public T? Data { get; set; }
-        public HttpStatusCode StatusCode{ get; set; }
-        public HashSet<String>? Errors { get; set; } 
+        public HttpStatusCode StatusCode { get; set; }
+        public HashSet<String>? Errors { get; set; }
 
 
         //Staric Factory Metod => Factory Method Design Pattern
@@ -31,5 +31,5 @@ namespace ElasticSearch.API.DTOs
     }
 
 
-    
+
 }

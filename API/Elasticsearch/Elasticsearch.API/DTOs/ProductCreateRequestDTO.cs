@@ -1,4 +1,5 @@
-﻿using ElasticSearch.API.Model;
+﻿using Elasticsearch.API.Models;
+using ElasticSearch.API.Models;
 
 namespace ElasticSearch.API.DTOs
 {

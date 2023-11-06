@@ -1,6 +1,6 @@
-﻿namespace Elasticsearch.API.DTOs
-{
-    public record ProductUpdateDto(string Id,string Name, decimal Price, int Stock, ProductFeatureDto Feature)
-    {
-    }
-}
+﻿//namespace ElasticSearch.API.DTOs
+//{
+//    public record ProductUpdateRequestDTO(string Id, string Name, decimal Price, int Stock, ProductFeatureDTO Feature)
+//    {
+//    }
+//}
