@@ -704,23 +704,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\f-cak\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\PC\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\UdemyElasticsearchWithNet\\API\\Elasticsearch\\Elasticsearch.API\\Elasticsearch.API.csproj",
+      "projectUniqueName": "C:\\Users\\PC\\Desktop\\Repos\\UdemyElasticsearchWithNet\\API\\Elasticsearch\\Elasticsearch.API\\Elasticsearch.API.csproj",
       "projectName": "Elasticsearch.API",
-      "projectPath": "D:\\UdemyElasticsearchWithNet\\API\\Elasticsearch\\Elasticsearch.API\\Elasticsearch.API.csproj",
-      "packagesPath": "C:\\Users\\f-cak\\.nuget\\packages\\",
-      "outputPath": "D:\\UdemyElasticsearchWithNet\\API\\Elasticsearch\\Elasticsearch.API\\obj\\",
+      "projectPath": "C:\\Users\\PC\\Desktop\\Repos\\UdemyElasticsearchWithNet\\API\\Elasticsearch\\Elasticsearch.API\\Elasticsearch.API.csproj",
+      "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\PC\\Desktop\\Repos\\UdemyElasticsearchWithNet\\API\\Elasticsearch\\Elasticsearch.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\f-cak\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -778,7 +779,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.300-preview.23179.2\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
       }
     }
   }
