@@ -1,23 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\UdemyElasticsearchWithNet\\API\\Elasticsearch\\Elasticsearch.API\\Elasticsearch.API.csproj": {}
+    "C:\\Users\\PC\\Desktop\\Repos\\UdemyElasticsearchWithNet\\API\\Elasticsearch\\ElasticSearch.API\\ElasticSearch.API.csproj": {}
   },
   "projects": {
-    "D:\\UdemyElasticsearchWithNet\\API\\Elasticsearch\\Elasticsearch.API\\Elasticsearch.API.csproj": {
+    "C:\\Users\\PC\\Desktop\\Repos\\UdemyElasticsearchWithNet\\API\\Elasticsearch\\ElasticSearch.API\\ElasticSearch.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\UdemyElasticsearchWithNet\\API\\Elasticsearch\\Elasticsearch.API\\Elasticsearch.API.csproj",
+        "projectUniqueName": "C:\\Users\\PC\\Desktop\\Repos\\UdemyElasticsearchWithNet\\API\\Elasticsearch\\ElasticSearch.API\\ElasticSearch.API.csproj",
         "projectName": "Elasticsearch.API",
-        "projectPath": "D:\\UdemyElasticsearchWithNet\\API\\Elasticsearch\\Elasticsearch.API\\Elasticsearch.API.csproj",
-        "packagesPath": "C:\\Users\\f-cak\\.nuget\\packages\\",
-        "outputPath": "D:\\UdemyElasticsearchWithNet\\API\\Elasticsearch\\Elasticsearch.API\\obj\\",
+        "projectPath": "C:\\Users\\PC\\Desktop\\Repos\\UdemyElasticsearchWithNet\\API\\Elasticsearch\\ElasticSearch.API\\ElasticSearch.API.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\PC\\Desktop\\Repos\\UdemyElasticsearchWithNet\\API\\Elasticsearch\\Elasticsearch.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\f-cak\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -43,13 +44,17 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "Elastic.Clients.Elasticsearch": {
+              "target": "Package",
+              "version": "[8.10.0, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
-              "version": "[7.0.5, )"
+              "version": "[7.0.13, )"
             },
-            "NEST": {
+            "MySql.Data": {
               "target": "Package",
-              "version": "[7.17.5, )"
+              "version": "[8.2.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -75,7 +80,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.300-preview.23179.2\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }

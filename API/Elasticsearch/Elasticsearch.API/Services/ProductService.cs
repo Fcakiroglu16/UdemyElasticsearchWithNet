@@ -1,154 +1,188 @@
-﻿using Elasticsearch.API.DTOs;
-using Elasticsearch.API.Models;
-using Elasticsearch.API.Repositories;
+﻿using Elastic.Clients.Elasticsearch;
+using ElasticSearch.API.DTOs;
+using ElasticSearch.API.Interfaces;
+using ElasticSearch.API.Model;
+using ElasticSearch.API.Repository;
 using Microsoft.Extensions.Logging;
-using Nest;
+//using Nest;
 using System.Collections.Immutable;
 using System.Net;
 
-namespace Elasticsearch.API.Services
+namespace ElasticSearch.API.Services
 {
     public class ProductService
     {
-
         private readonly ProductRepository _productRepository;
+
         private readonly ILogger<ProductService> _logger;
+
         public ProductService(ProductRepository productRepository, ILogger<ProductService> logger)
         {
             _productRepository = productRepository;
             _logger = logger;
         }
 
-        public async Task<ResponseDto<ProductDto>> SaveAsync(ProductCreateDto request)
+
+        public async Task<ResponseDTO<ProductDTO>> SaveAsync(ProductCreateRequestDTO request)
         {
 
-
-
-
-            var responseProduct = await _productRepository.SaveAsync(request.CreateProduct());
-            if (responseProduct == null)
+            try
             {
-                return ResponseDto<ProductDto>.Fail(new List<string> { "kayıt esnasında bir hata meydana geldi." }, System.Net.HttpStatusCode.InternalServerError);
-            }
+                //tek tek burda maplemek yerine ProductCreateRequestDTO a gittik orda mapledik geldik.
+                var responseProduct = await _productRepository.SaveAsync(request.CreateProduct());
+                //aslında yukarda ProductRepository'den bize return'de ya null ya da newProduct dönüyo biz onu responseProduct'a setliyoruz.
 
-
-
-            return ResponseDto<ProductDto>.Success(responseProduct.CreateDto(), HttpStatusCode.Created);
-
-
-
-
-        }
-
-
-        public async Task<ResponseDto<List<ProductDto>>> GetAllAsync()
-        {
-
-
-            var products = await _productRepository.GetAllAsync();
-            var productListDto = new List<ProductDto>();
-
-
-
-            foreach (var x in products)
-            {
-
-                if (x.Feature is null)
+                if (responseProduct == null) //Burası ProductRepository deki return'ün null dönme durumu için
                 {
-                    productListDto.Add(new ProductDto(x.Id, x.Name, x.Price, x.Stock, null));
-
-                    continue;
+                    return ResponseDTO<ProductDTO>.Fail(new HashSet<string> { "kayıt esnasında bir sorun oluştu" },
+                        System.Net.HttpStatusCode.InternalServerError);
                 }
 
+                return ResponseDTO<ProductDTO>.Succes(responseProduct.CreateDTO(), System.Net.HttpStatusCode.Created);
+                //Burasıda ProductRepository deki return'ün newProduct dönme durumu için
+            }
+            catch (Exception)
+            {
 
-                productListDto.Add(new ProductDto(x.Id, x.Name, x.Price, x.Stock, new ProductFeatureDto(x.Feature.Width, x.Feature!.Height, x.Feature!.Color.ToString())));
-
-
-
-
-
+                throw;
             }
 
-
-
-            return ResponseDto<List<ProductDto>>.Success(productListDto, HttpStatusCode.OK);
 
 
         }
 
 
-        public async Task<ResponseDto<ProductDto>> GetByIdAsync(string id)
+        public async Task<ResponseDTO<List<ProductDTO>>> GetAllAsync()
         {
 
-            var hasProduct = await _productRepository.GetByIdAsync(id);
-
-
-            if (hasProduct == null)
+            try
             {
-                return ResponseDto<ProductDto>.Fail("ürün bulunamadı", HttpStatusCode.NotFound);
+                var allProducts = await _productRepository.GetAllAsync();
+
+                var allProductListDTO = new List<ProductDTO>();
+
+                //var allProductList = allProducts.Select(p => new ProductDTO(p.Id, p.Name, p.Price, p.Stock, p.Create, p.Updated,
+                //    new ProductFeatureDTO(p.Feature.Width, p.Feature.Height, p.Feature.Color))).ToList();
+
+
+                foreach (var p in allProducts)
+                {
+                    if (p.Feature == null)
+                    {
+                        allProductListDTO.Add(new ProductDTO(p.Id, p.Name, p.Price, p.Stock, p.Create, p.Updated, null));
+                    }
+                    else
+                    {
+                        allProductListDTO.Add(new ProductDTO(p.Id, p.Name, p.Price, p.Stock, p.Create, p.Updated,
+                            new ProductFeatureDTO(p.Feature.Width, p.Feature.Height, p.Feature.Color.ToString())));
+                    }
+                }
+
+                return ResponseDTO<List<ProductDTO>>.Succes(allProductListDTO, HttpStatusCode.OK);
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
 
-            var productDto = hasProduct.CreateDto();
 
-            return ResponseDto<ProductDto>.Success(productDto, HttpStatusCode.OK);
         }
 
-
-
-        public async Task<ResponseDto<bool>> UpdateAsync(ProductUpdateDto updateProduct)
+        public async Task<ResponseDTO<ProductDTO>> GetByIdAsync(string id)
         {
 
-            var  isSuccess= await _productRepository.UpdateSynch(updateProduct);
+            try
+            {
+                var hasProduct = await _productRepository.GetByIdAsync(id);
 
+                if (hasProduct == null)
+                {
+                    return ResponseDTO<ProductDTO>.Fail("İlgili id ile Ürün bulunamadı.", HttpStatusCode.NotFound);
+                }
 
-            if(!isSuccess)
+                return ResponseDTO<ProductDTO>.Succes(hasProduct.CreateDTO(), HttpStatusCode.OK);
+            }
+            catch (Exception)
             {
 
+                throw;
+            }
+
+        }
+
+        public async Task<ResponseDTO<bool>> UpdateAsync(ProductUpdateRequestDTO updateProduct)
+        {
+            try
+            {
+                var isSucces = await _productRepository.UpdateAsync(updateProduct);
+
+                if (isSucces)
+                {
+                    return ResponseDTO<bool>.Succes(true, HttpStatusCode.NoContent);
+                }
+
+                return ResponseDTO<bool>.Fail("Update sırasında bir hata oluştu.", HttpStatusCode.InternalServerError);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+
+        public async Task<ResponseDTO<bool>> DeleteAsync(string id)
+        {
+
+            try
+            {
+                var deleteResponse = await _productRepository.DeleteAsync(id);
+
+                #region Burası NEST kütüphanesi İLE OLAN
+                //if (!deleteResponse.IsValid && deleteResponse.Result == Result.NotFound)
+                //{
+                //    return ResponseDTO<bool>.Fail("Silinecek ürün Database'de bulunamadı.", HttpStatusCode.NotFound);
+                //}
+
+                ////return ResponseDTO<bool>.Fail("Silme işlemi sırasında bir hata oluştu.", HttpStatusCode.InternalServerError);
+
+                //if (!deleteResponse.IsValid)
+                //{
+                //    _logger.LogError(deleteResponse.OriginalException,deleteResponse.ServerError?.Error.ToString()); //Log tuttuk.Bu developer için önemli developerın hata için görmesi gereken
+
+                //    return ResponseDTO<bool>.Fail("Silme işlemi sırasında bir hata oluştu.", HttpStatusCode.InternalServerError); // burasıda kullanıcının göreceği hata mesajı
+                //}
+
+                #endregion
+                
+                #region 
+
+                if (!deleteResponse.IsValidResponse && deleteResponse.Result == Result.NotFound)
+                {
+                    return ResponseDTO<bool>.Fail("Silinecek ürün Database'de bulunamadı.", HttpStatusCode.NotFound);
+                }
+
+                //return ResponseDTO<bool>.Fail("Silme işlemi sırasında bir hata oluştu.", HttpStatusCode.InternalServerError);
+
+                if (!deleteResponse.IsValidResponse)
+                {
+                    deleteResponse.TryGetOriginalException(out Exception? exception); //Burda exception'u aldık.Bir metotdan birden fazla nasıl geri dönebiliriz ? out,touble,sınıf,ref ile dönebiliriz. TryGetOriginalException geriye true dönerse exeption'un içerisini de data ile doldurur.
+                    _logger.LogError(exception, deleteResponse.ElasticsearchServerError?.Error.ToString()); //Log tuttuk.Bu developer için önemli developerın hata için görmesi gereken
+
+                    return ResponseDTO<bool>.Fail("Silme işlemi sırasında bir hata oluştu.", HttpStatusCode.InternalServerError); // burasıda kullanıcının göreceği hata mesajı
+                }
+                #endregion
+
+
+                return ResponseDTO<bool>.Succes(true, HttpStatusCode.NoContent);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
             
-
-                return ResponseDto<bool>.Fail(new List<string> { "update esnasında bir hata meydana geldi." }, System.Net.HttpStatusCode.InternalServerError);
-            }
-
-
-            return ResponseDto<bool>.Success(true, HttpStatusCode.NoContent);
-
-
-
-
-
         }
-
-
-        public async Task<ResponseDto<bool>> DeleteAsync(string id)
-        {
-            var deleteResponse = await _productRepository.DeleteAsync(id);
-
-
-            if(!deleteResponse.IsValid && deleteResponse.Result==Result.NotFound)
-            {
-                return ResponseDto<bool>.Fail(new List<string> { "Silmeye çalıştığınız ürün bulunamamıştır." }, System.Net.HttpStatusCode.NotFound);
-
-            }
-
-
-            if(!deleteResponse.IsValid)
-            {
-                _logger.LogError(deleteResponse.OriginalException, deleteResponse.ServerError.Error.ToString());
-
-
-                return ResponseDto<bool>.Fail(new List<string> { "silme esnasında bir hata meydana geldi." }, System.Net.HttpStatusCode.InternalServerError);
-
-            }
-
-
-
-            return ResponseDto<bool>.Success(true, HttpStatusCode.NoContent);
-        }
-
     }
 }
-
-
-
-
-
