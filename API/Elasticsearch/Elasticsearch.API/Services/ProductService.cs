@@ -90,7 +90,7 @@ namespace ElasticSearch.API.Services
         }
 
         public async Task<ResponseDTO<ProductDTO>> GetByIdAsync(string id)
-        {
+        { 
 
             try
             {
