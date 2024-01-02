@@ -11,6 +11,9 @@ builder.Services.AddElastic(builder.Configuration);
 builder.Services.AddScoped<BlogRepository>();
 builder.Services.AddScoped<BlogService>();
 
+builder.Services.AddScoped<ECommerceRepository>();
+builder.Services.AddScoped<ECommerceService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
